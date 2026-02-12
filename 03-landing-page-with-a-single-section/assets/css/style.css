@@ -1,0 +1,33 @@
+body{
+    background-color: #674bb1 !important;
+}
+.icon-custom{
+    width: 30px;
+    height: 30px;
+}
+#main{
+    background: url(../img/bg-desktop.svg) no-repeat top left;
+    background-size: contain;
+}
+.btn-custom{
+    color: #674bb1 !important;
+}
+.btn-custom:hover{
+    background-color: #e980e7 !important;
+    border-color: #e980e7 !important;
+    color: #fff !important;
+}
+.icon-custom:hover{
+    border-color: #ff53c4 !important;
+    color: #ff53c4 !important;
+}
+
+
+
+
+@media(max-width: 1199px){
+    #main{
+        background: url(../img/bg-mobile.svg) no-repeat top left;
+        background-size: contain;
+    }    
+}

@@ -1,0 +1,18 @@
+body{
+    background-color: #fafafa;
+}
+.box{
+    height: 230px;
+}
+#box-green{
+    border-color: #42d4d3 !important;
+}
+#box-red{
+    border-color: #ec5355 !important;
+}
+#box-yellow{
+    border-color: #fcae4a !important;
+}
+#box-blue{
+    border-color: #529ef2 !important;
+}

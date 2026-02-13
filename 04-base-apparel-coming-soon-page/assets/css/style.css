@@ -1,0 +1,114 @@
+:root{
+    --color-pink: #c49396;
+}
+#main .row{
+    background: url(../img/bg-pattern-desktop.svg) no-repeat top center;
+    background-size: cover;
+}
+#content-header span,
+#content-header p{
+    color: var(--color-pink);
+}
+#content-header h1{
+    font-size: 3.3rem;
+    letter-spacing: 15px;
+    line-height: 3.5rem;
+}
+.btn-custom{
+    background-color: #f19393 !important;
+    border-color: #f19393 !important;
+    margin-left: -5.4rem !important;
+    padding: .7rem 2.3rem !important;
+    z-index: 6 !important;
+}
+.btn-custom:active{
+    background-color: #f7cbcc !important;
+    border-color: #f7cbcc !important;
+}
+.input-custom{
+    background-color: transparent !important;
+}
+.input-custom:focus{
+    border-color: var(--color-pink) !important;
+    box-shadow: 0 0 0 .25rem rgba(241, 147, 147, .25) !important;
+}
+.input-custom::placeholder{
+    color: var(--color-pink) !important;
+}
+.invalid-custom{
+    border-color: rgb(223 111 108) !important;
+    /* border-color: rgb(251 98 104) !important; */
+    border-width: 2px !important;
+    background: url(../img/icon-error.svg) no-repeat;
+    background-position: 75%;
+}
+.invalid-custom:focus{
+    border-color: rgb(223 111 108) !important;
+}
+.invalid-feedback-custom{
+    font-size: .8rem;
+    font-weight: 500;
+    color: rgb(223 111 108) !important;
+    margin-left: 1.5rem;
+    margin-top: 4px;
+}
+#img-header{
+    background: url(../img/hero-desktop.jpg) no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+/* .vw-100,
+.container-fluid .row{
+    max-width: 100%;
+} */
+
+
+
+
+@media(max-width: 991px){
+    #img-header{
+        background: url(../img/hero-mobile.jpg) no-repeat top center;
+        background-size: contain;
+        height: 300px;
+        /* contain 161px */
+    }
+    #main>.row{
+        flex-direction: column-reverse;
+        margin-top: 90px !important;
+    }
+    #main{
+        position: relative;
+        float: left;
+    }
+    header{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        height: 90px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        padding-left: 30px;
+    }
+    #content-header h1 {
+        font-size: 2.7rem;
+        letter-spacing: 10px;
+        line-height: 3rem;
+    }
+    .invalid-custom{
+        background-position: 80%;
+    }
+    
+    
+}
+@media(max-width: 767px){
+    .btn-custom{
+        margin-left: -4.4rem !important;
+        padding: .7rem 1.8rem !important;
+    }
+    .invalid-custom{
+        background-position: 75%;
+    }
+}

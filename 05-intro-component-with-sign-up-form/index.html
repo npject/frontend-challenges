@@ -9,6 +9,61 @@
     <link href="./assets/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center text-light my-lg-5 my-3
+                align-items-lg-start align-items-center">
+                    <h1 class="fw-bold w-75 text-lg-start text-center">
+                        learn to code by watching others
+                    </h1>
+                    <p class="text-lg-start text-center">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quia quo iste explicabo adipisci voluptatem earum,
+                        numquam tenetur itaque quidem saepe?
+                        Unde ad beatae earum officiis error dicta quaerat iste asperiores.
+                    </p>
+                </div>
+                <div class="col-lg-6 my-lg-5 my-3" id="box-right">
+                    <div class="col-12 p-3 rounded-2 mb-3 text-center text-light bg-blue">
+                        <p class="mb-0 fw-light">
+                            <span class="fw-bold">Try it free 7 days</span>
+                            then S20/mo. thereafter
+                        </p>
+                    </div>
+                    <div class="col-12 bg-white rounded-2">
+                      <form method="POST" action="reg.php" onsubmit="return valid()">
+                        <div class="col-12 mb-3">
+                            <input class="form-control rounded-2 px-4" placeholder="First Name"
+                            type="text" name="firstName" id="firstName">
+                            <p id="feedback-firstName" class="fst-italic text-end"></p>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <input class="form-control rounded-2 px-4" placeholder="Last Name"
+                            type="text" name="lastName" id="lastName">
+                            <p id="feedback-lastName" class="fst-italic text-end"></p>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <input class="form-control rounded-2 px-4" placeholder="Email Address"
+                            type="text" name="email" id="email">
+                            <p id="feedback-email" class="fst-italic text-end"></p>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <input class="form-control rounded-2 px-4" placeholder="Password"
+                            type="password" name="password" id="pass">
+                            <p id="feedback-pass" class="fst-italic text-end"></p>
+                        </div>
+                        <input class="btn mb-2 text-light w-100 btn-custom" type="submit" value="CLAIM YOUR FREE TRIAL">
+                      </form>
+                        <P class="text-body-tertiary fw-bold text-center">
+                            By clicking the button, you are agreeing to our <span class="text-danger">Terms and services.</span>
+                        </P>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     
 
     

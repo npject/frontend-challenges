@@ -1,0 +1,117 @@
+:root{
+    --bg-body: hsl(240, 78%, 98%);
+    --color-dark-grayish-blue: hsl(232, 13%, 33%);
+    --color-grayish-blue: hsl(233, 13%, 49%);
+    --color-light-grayish-blue: hsl(234, 14%, 74%);
+    --color-blue-violet: HSL(237, 63%, 64%);
+}
+@font-face {
+    font-family: 'Montserrat-regular';
+    src: url('../fonts/Montserrat-Regular.eot') format('eot'),
+    url('../fonts/Montserrat-Regular.ttf') format('ttf'),
+    url('../fonts/Montserrat-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Montserrat-medium';
+    src: url('../fonts/Montserrat-Medium.eot') format('eot'),
+    url('../fonts/Montserrat-Medium.ttf') format('ttf'),
+    url('../fonts/Montserrat-Medium.woff') format('woff');
+}
+@font-face {
+    font-family: 'Montserrat-bold';
+    src: url('../fonts/Montserrat-Bold.eot') format('eot'),
+    url('../fonts/Montserrat-Bold.ttf') format('ttf'),
+    url('../fonts/Montserrat-Bold.woff') format('woff');
+}
+.font-light{    
+    font-family: 'Montserrat-regular' !important;
+}
+.fw-medium{    
+    font-family: 'Montserrat-medium' !important;
+}
+.fw-bold,
+.fw-semibold{    
+    font-family: 'Montserrat-bold' !important;
+}
+body{
+    background-color: var(--bg-body) !important;
+    font-family: 'Montserrat-regular' !important;
+}
+.fs-xxxlarge{
+    font-size: xxx-large !important;
+}
+.text-dark-grayish-blue{
+    color: var(--color-dark-grayish-blue) !important;
+}
+.text-grayish-blue{
+    color: var(--color-grayish-blue) !important;
+}
+.text-light-grayish-blue{
+    color: var(--color-light-grayish-blue) !important;
+}
+#switch .form-check{
+    transform: rotateY(180deg);
+}
+#switch .form-check-input:checked{
+    background-color: var(--color-blue-violet);
+}
+#switch .form-check-input:focus{
+    border-color: var(--color-blue-violet);
+    box-shadow: none;
+}
+.form-switch .form-check-input:focus {
+    --bs-form-switch-bg: url('../img/form-switch-custom.svg') !important;
+}    
+#main ul li>span,
+#main ul li>.btn,
+#switch span{
+    font-size: 13px;
+}
+#pricing-cards .card:nth-child(2n){
+    background: var(--color-blue-violet);
+    background: radial-gradient(circle,rgba(105, 111, 221, 1) 0%, rgba(163, 168, 240, 1) 100%);
+}
+#pricing-cards .card:nth-child(2n) li{
+    border-color: rgba(255, 255, 255, .2);
+}
+#pricing-cards .card:nth-child(2n+1) li{
+    border-color: hsla(233, 13%, 49%, .2);
+}
+#pricing-cards .card:nth-child(2n) .btn{
+    color: var(--color-blue-violet);
+    transition: all ease-in-out .2s;
+}
+#pricing-cards .card:nth-child(2n+1) .btn{
+    background: var(--color-blue-violet);
+    background: radial-gradient(circle,rgba(105, 111, 221, 1) 0%, rgba(163, 168, 240, 1) 100%);
+    transition: all ease-in-out .2s;
+}
+#pricing-cards .card:nth-child(2n) .btn:hover{
+    background-color: transparent !important;
+    color: #f6f6f6;
+    border-color: #f6f6f6;
+    transition: all ease-in-out .2s;
+}
+#pricing-cards .card:nth-child(2n+1) .btn:hover{
+    background: transparent !important;
+    color: var(--color-blue-violet) !important;
+    border-color: var(--color-blue-violet);
+    transition: all ease-in-out .2s;
+}
+
+
+
+
+
+
+
+@media (min-width: 992px) {
+    #pricing-cards div .card:nth-child(1){
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+    #pricing-cards div .card:nth-child(3){
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+    }
+}

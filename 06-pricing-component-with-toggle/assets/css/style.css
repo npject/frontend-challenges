@@ -104,7 +104,6 @@ body{
 
 
 
-
 @media (min-width: 992px) {
     #pricing-cards div .card:nth-child(1){
         border-top-right-radius: 0 !important;
@@ -113,5 +112,10 @@ body{
     #pricing-cards div .card:nth-child(3){
         border-top-left-radius: 0 !important;
         border-bottom-left-radius: 0 !important;
+    }
+}
+@media (max-width: 991px) {
+    .img-decorative.w-25{
+        width: 50% !important;
     }
 }

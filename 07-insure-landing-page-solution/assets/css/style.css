@@ -1,0 +1,161 @@
+:root{
+    --color-blue: #2c2640;
+}
+@font-face {
+    font-family: 'DMSerifDisplay-Regular';
+    src: url('../fonts/DMSerifDisplay-Regular.eot') format('eot'),
+    url('../fonts/DMSerifDisplay-Regular.ttf') format('ttf'),
+    url('../fonts/DMSerifDisplay-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Karla-medium';
+    src: url('../fonts/Karla-Medium.eot') format('eot'),
+    url('../fonts/Karla-Medium.ttf') format('ttf'),
+    url('../fonts/Karla-Medium.woff') format('woff');
+}
+@font-face {
+    font-family: 'Karla-bold';
+    src: url('../fonts/Karla-Bold.eot') format('eot'),
+    url('../fonts/Karla-Bold.ttf') format('ttf'),
+    url('../fonts/Karla-Bold.woff') format('woff');
+}
+h1,h2,h3{
+    font-family: 'DMSerifDisplay-Regular' !important;
+}
+.fw-medium,
+.body{
+    font-family: 'Karla-medium' !important;
+}
+.fw-bold{
+    font-family: 'Karla-bold' !important;
+}   
+header>div,
+#how-we-work div.container{
+    background-color: var(--color-blue);
+}
+header .container{
+    transform: translateY(20%);
+}
+nav .btn-custom-dark{
+    color: var(--color-blue);
+}
+/* .btn-custom-dark:hover{
+    background-color: var(--color-blue);
+    color: #fff !important;
+} */
+nav .btn-custom-dark a{
+    border: solid 2px var(--color-blue);
+}
+nav .btn-custom-dark a:hover{
+    background-color: var(--color-blue);
+    color: #fff !important;
+}
+nav .nav-item:not(.btn-custom-dark) .nav-link:hover{
+    color: var(--color-blue) !important;
+}
+header .btn:hover{
+    color: var(--color-blue);
+}
+/* header img:last-child{
+    transform: translateY(120px);
+} */
+header>img:first-child{
+    height: 55%;
+}
+header>img:last-child{
+    height: 45%;
+}
+header{
+    height: 900px;
+}
+#content-header div{
+    height: 80%;
+}
+.border-custom-light{
+    border-top: solid 1px rgba(255,255,255,.6);
+}
+.border-custom-dark{
+    border-top: solid 1px rgba(44,38,64,.6);
+}
+.border-custom-footer{
+    border-top: solid 1px rgba(194, 194, 194, 0.6);
+}
+header h1,
+#wereDifferent h2{
+    font-size: 70px;
+    line-height: 65px;
+    margin-bottom: 30px;
+}
+#wereDifferent h2{
+    margin-bottom: 90px !important;
+}
+#wereDifferent,
+#how-we-work{
+    margin-bottom: 150px;
+}
+#how-we-work div.row{
+    height: 230px;
+}
+#how-we-work h2{
+    font-size: 55px;
+    line-height: 55px;
+}
+footer{
+    background-color: #fafafa;
+    height: 400px;
+}
+footer #contact-us a i:hover{
+    color: var(--color-blue);
+}
+footer .row>.col-lg-3 a:hover{
+    text-decoration: underline var(--color-blue) !important;
+}
+
+
+
+
+
+
+
+
+@media(max-width:991px){
+    header{
+        height: auto;
+        margin-bottom: 100px !important;
+    }
+    header .container{
+        padding: 0;
+        max-width: initial;
+    }
+    header #img-header{
+        order: -1;
+    }
+    header .container{
+        transform: initial;
+    }
+    header h1,
+    #wereDifferent h2{
+        font-size: 50px;
+        line-height: 55px;
+        margin-bottom: 30px;
+    }ّ
+    #content-header div{
+        height: 100%;
+    }
+    #content-header div{
+        height: 100%;
+    }
+    #how-we-work div.row{
+        height: 330px;
+    }
+    #how-we-work h2{
+        font-size: 38px;
+        line-height: 45px;
+    }
+    footer{
+        height: 900px;
+    }
+    header img.translate-50{
+        transform: translateY(50%);
+    }
+}

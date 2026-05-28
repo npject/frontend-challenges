@@ -1,0 +1,198 @@
+:root{
+    --color-Bright-Red: hsl(12, 88%, 59%);
+    --color-Dark-Blue: hsl(228, 39%, 23%);
+    --color-Dark-Grayish-Blue: hsl(227, 12%, 61%);
+    --color-Very-Dark-Blue: hsl(233, 12%, 13%);
+    --color-Very-Pale-Red: hsl(13, 100%, 96%);
+    --color-Very-Light-Gray: hsl(0, 0%, 98%);
+    --color-btn-hover: hsl(11.82deg 91.67% 71.76%);
+}
+p:not(.invalid-feedback),
+span,
+a{
+    font-size: 14px !important;
+    color: var(--color-Dark-Grayish-Blue) !important;
+}
+*::selection{
+    background-color: hsl(12, 97%, 77%);
+    color: var(--color-Very-Dark-Blue);
+}
+button,
+input{
+    font-size: 12px !important;
+}
+.text-dark-blue{
+    color: var(--color-Dark-Blue) !important;
+}
+.bg-bright-red{
+    background-color: var(--color-Bright-Red);
+}
+.bg-very-light-gray{
+    background-color: var(--color-Very-Light-Gray);
+}
+.btn-custom{
+    background-color: var(--color-Bright-Red) !important;
+}
+.btn-custom:hover{
+    background-color: var(--color-btn-hover) !important;
+}
+.btn-custom-2{
+    color: var(--color-Bright-Red) !important;
+}
+.btn-custom-2:hover{
+    color: var(--color-btn-hover) !important;
+}
+/* header */
+nav ul li a,
+.offcanvas ul li a{
+    color: var(--color-Dark-Blue) !important;
+}
+header nav ul li a:hover{
+    color: var(--color-Dark-Grayish-Blue) !important;
+}
+#hero-section h1{
+    font-size: 3.3rem;
+    font-weight: 700;
+    line-height: normal;
+}
+#hero-section img{
+    width: 500px;
+}
+/* header #decorativeImg-1{
+    height: 100%;
+    top: -15%;
+    right: -5%;
+} */
+.offcanvas{
+    --bs-offcanvas-height: 321px !important;
+}
+.offcanvas-backdrop{
+    background: linear-gradient(to top, rgba(0, 0, 0, .6) 50%, transparent 100%) !important;
+}
+.offcanvas-backdrop.show{
+    opacity: 1 !important;
+}
+header{
+    background: url("../img/bg-tablet-pattern.svg") no-repeat bottom right;
+    background-size: 45%;
+    background-position: 105% -100px;
+}
+/* section about us */
+#about-us h2,
+#comments h2,
+footer h2{
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+#about-us .item-about .badge-custom{
+    width: 55px;
+    height: 33px;
+}
+#about-us .item-about h3{
+    height: 33px;
+}
+main{
+    background: url("../img/bg-tablet-pattern.svg") no-repeat left bottom;
+    background-size: 45%;
+    background-position: -48% 55%;
+}
+/* section comments */
+#comments #swiper-comments .swiper-slide img{
+    width: 66px;
+    height: 66px;
+    margin-top: -33px;
+}
+.swiper-pagination-bullet{
+    background: transparent !important;
+    border: 1px solid var(--color-Bright-Red) !important;
+    opacity: 1 !important;
+}
+.swiper-pagination-bullet-active{
+    background-color: var(--color-Bright-Red) !important;
+}
+/* footer */
+footer #top-footer>div{
+    background: url("../img/bg-simplify-section-desktop.svg") no-repeat bottom;
+    background-position-x: 200px;
+}
+footer #bottom-footer{
+    background-color: var(--color-Very-Dark-Blue);
+}
+footer a:hover{
+    color: var(--color-btn-hover) !important;
+}
+.form-control:focus{
+    border-color: rgb(255, 163, 140) !important;
+    box-shadow: 0 0 0 .25rem rgba(255, 163, 140, 0.25) !important;
+}
+
+
+
+
+
+@media (max-width:991px){
+    #hero-section h1{
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+    header #decorativeImg-1{
+        width: 70%;
+        height: initial;
+        top: -5%;
+        right: -5%;
+    }
+    footer .fa-brands{
+        font-size: 2rem;
+    }
+    header{
+        background-size: 75%;
+        background-position: 120% -100px;
+    }
+    main{
+        background-size: 75%;
+        background-position: -140% 85%;
+    }
+}
+@media (max-width:767px){
+    #about-us .item-about .bg-very-pale-red{
+        background-color: var(--color-Very-Pale-Red);
+    }
+    header #decorativeImg-1{
+        width: 100%;
+        height: initial;
+        top: -5%;
+        right: -15%;
+    }
+    header{
+        background-size: 100%;
+        background-position: 140px -180px;
+    }
+    main{
+        background-size: 70%;
+        background-position: 415px 55%;
+    }
+}
+@media (min-height:800px) and (max-width:500px){
+    #hero-section{
+        height: 85vh !important;
+    }
+    header{
+        background-size: 100%;
+        background-position: 65px -25px;
+    }
+    main{
+        background-size: 100%;
+        background-position: 200px 60%;
+    }
+}
+@media (min-width:1025px){
+    header{
+        min-height: 100vh;
+    }
+}
+@media (max-width:540px){
+    header{
+        background-size: 100%;
+        background-position: 100px -60px;
+    }
+}

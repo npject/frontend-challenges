@@ -12,4 +12,53 @@
   body {
     font-family: var(--font-rubik);
   }
+  input.is-invalid{
+    background: url('../img/icon-error.svg') no-repeat;
+    background-position: 95% ;
+  }
+  [x-cloak] {
+    display: none !important;
+  }
+  .offcanvas{
+    background-color: hsla(229, 31%, 21%, 96%);
+  }
+}
+
+@layer components {
+  .my-container {
+    @apply mx-auto w-full sm:w-11/12  lg:w-9/12 max-w-7xl px-4 sm:px-0; /* px-4 برای پدینگ کناره‌ها در موبایل */
+  }
+  .container-hero {
+    @apply mx-auto w-full sm:w-11/12 max-w-7xl px-4 sm:px-0; 
+  }
+  .container {
+    @apply mx-auto; /* با این کار کلاس پیش‌فرض تیل‌ویند وسط‌چین می‌شود */
+  }
+  .btn-blue-custom {
+    @apply bg-blue-custom border hover:bg-white border-blue-custom text-white hover:text-blue-custom px-5 py-2 rounded-sm shadow-sm text-[13px] cursor-pointer transition-colors duration-300;
+  }
+  .btn-red-custom {
+    @apply bg-red-custom border hover:bg-white border-red-custom text-white hover:text-red-custom px-5 py-2 rounded-sm shadow-sm text-[13px] cursor-pointer transition-colors duration-300;
+  }
+  .btn-gray-custom {
+    @apply bg-gray-custom border hover:bg-white border-gray-custom hover:border-gray-600 text-gray-600 px-5 py-2 rounded-sm shadow-sm text-[13px] cursor-pointer transition-colors duration-300;
+  }
+  .accordion{
+    @apply w-full border-t border-gray-300;
+  }
+  .accordion-item{
+    @apply w-full border-b border-gray-300;
+  }
+  .accordion-header{
+    @apply flex flex-row justify-between items-center py-5 pr-5 text-dark-blue-custom hover:text-red-custom transition-colors duration-300;
+  }
+  .accordion-icon{
+    @apply transition-all duration-500;
+  }
+  .accordion-body{
+    @apply text-gray-500 transition-all duration-500 overflow-hidden;
+  }
+  .accordion-body p{
+    @apply py-5;
+  }
 }

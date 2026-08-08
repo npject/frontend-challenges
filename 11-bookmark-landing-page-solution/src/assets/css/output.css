@@ -535,6 +535,9 @@
     --tw-tracking: var(--tracking-widest);
     letter-spacing: var(--tracking-widest);
   }
+  .text-blue-custom {
+    color: var(--color-blue-custom);
+  }
   .text-dark-blue-custom {
     color: var(--color-dark-blue-custom);
   }

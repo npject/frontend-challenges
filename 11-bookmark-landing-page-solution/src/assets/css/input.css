@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-blue-custom: hsl(231, 69%, 60%);
+  --color-dark-blue-custom: hsl(229, 31%, 21%);
+  --color-red-custom: hsl(0, 94%, 66%);
+  --color-gray-custom: hsl(0, 0%, 97%);
+  --font-rubik: "Rubik", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-rubik);
+  }
+}

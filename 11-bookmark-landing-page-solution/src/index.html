@@ -109,78 +109,89 @@
 
     <main>
         <!-- start section features -->
-        <section class="relative w-full mb-16 lg:mb-20">
+        <section class="relative w-full mb-16 lg:mb-20" 
+        x-data="{ 
+           activeTab: 'bookmark',
+           tabs: [
+               { 
+                   id: 'bookmark', 
+                   title: 'Simple Bookmarking', 
+                   img: './assets/img/illustration-features-tab-1.svg', 
+                   headline: 'Bookmark in one click', 
+                   desc: 'Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite sites.' 
+               },
+               { 
+                   id: 'search', 
+                   title: 'Speedy Searching', 
+                   img: './assets/img/illustration-features-tab-2.svg', 
+                   headline: 'Intelligent search', 
+                   desc: 'Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks.' 
+               },
+               { 
+                   id: 'share', 
+                   title: 'Easy Sharing', 
+                   img: './assets/img/illustration-features-tab-3.svg', 
+                   headline: 'Share your bookmarks', 
+                   desc: 'Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button.' 
+               }
+           ]
+        }">
+        
             <div class="my-container flex flex-col items-center">
+                <!-- header section -->
                 <div class="flex-1 w-full sm:w-8/12 lg:w-6/12 text-center">
-                    <h2 class="text-2xl lg:text-3xl font-medium text-dark-blue-custom">Features</h2>
-                    <p class="text-gray-400 mt-6">
+                   <h2 class="text-2xl lg:text-3xl font-medium text-dark-blue-custom">Features</h2>
+                   <p class="text-gray-400 mt-6">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                         Similique optio expedita necessitatibus! Enim vero nemo cumque!
-                        Magni facilis dolores sed deleniti fugiat quo nobis similique minus,
+                        Magni facilis dolores sed deleniti fugiat quo nobis similique minus,           
                     </p>
                 </div>
+            
                 <!-- feature tabs -->
-                <div x-data="{ activeTab: 'bookmark' }" class="flex-1 w-full">
-                    <div class="flex flex-col sm:flex-row w-full sm:w-10/12 lg:w-8/12 mx-auto my-13 text-center">
-                        <div class="flex-1 py-5 transition-colors duration-300 border-b border-gray-300 border-t sm:border-t-0" x-on:click="activeTab = 'bookmark'" :class="activeTab === 'bookmark' ? 'sm:border-b-3 sm:border-red-custom text-dark-blue-custom' : 'sm:border-b sm:border-gray-300 text-gray-500 cursor-pointer hover:text-red-custom' ">
-                            <span class="py-5" :class="activeTab === 'bookmark' ? 'border-b-3 border-red-custom sm:border-none' : '' " >Simple Bookmarking</span>
-                        </div>
-                        <div class="flex-1 py-5 transition-colors duration-300 border-b border-gray-300" x-on:click="activeTab = 'search'" :class="activeTab === 'search' ? 'sm:border-b-3 sm:border-red-custom text-dark-blue-custom' : 'sm:border-b sm:border-gray-300 text-gray-500 cursor-pointer hover:text-red-custom' ">
-                            <span class="py-5" :class="activeTab === 'search' ? 'border-b-3 border-red-custom sm:border-none' : '' " >Speedy Searching</span>
-                        </div>
-                        <div class="flex-1 py-5 transition-colors duration-300 border-b border-gray-300" x-on:click="activeTab = 'share'" :class="activeTab === 'share' ? 'sm:border-b-3 sm:border-red-custom text-dark-blue-custom' : 'sm:border-b sm:border-gray-300 text-gray-500 cursor-pointer hover:text-red-custom' ">
-                            <span class="py-5" :class="activeTab === 'share' ? 'border-b-3 border-red-custom sm:border-none' : '' " >Easy Sharing</span>
-                        </div>
-                    </div>
-                    <!-- bookmark tab -->
-                    <div x-show="activeTab === 'bookmark'" class="flex flex-col sm:flex-row">
-                        <div class="sm:basis-1/2 h-80 md:h-86 lg:h-90 xl:h-112.5">
-                            <img src="./assets/img/illustration-features-tab-1.svg" alt="">
-                        </div>
-                        <div class="sm:basis-1/2 flex flex-col justify-center items-center sm:items-start sm:pl-10 lg:pl-28 text-center sm:text-start h-72 sm:h-auto">
-                            <h3 class="text-2xl font-medium text-dark-blue-custom">
-                                Bookmark in one click
-                            </h3>
-                            <p class="text-gray-400 w-full my-6">
-                                Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite sites.
-                            </p>
-                            <button class="btn-blue-custom mr-1 md:mr-2">More info</button>
-                        </div>
-                    </div>
-                    <!-- search tab -->
-                    <div x-show="activeTab === 'search'" class="flex flex-col sm:flex-row">
-                        <div class="sm:basis-1/2 h-80 md:h-86 lg:h-90 xl:h-112.5">
-                            <img src="./assets/img/illustration-features-tab-2.svg" alt="">
-                        </div>
-                        <div class="sm:basis-1/2 flex flex-col justify-center items-center sm:items-start sm:pl-10 lg:pl-28 text-center sm:text-start h-72 sm:h-auto">
-                            <h3 class="text-2xl font-medium text-dark-blue-custom">
-                                Intelligent search
-                            </h3>
-                            <p class="text-gray-400 w-full my-6">
-                                Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks.
-                            </p>
-                            <button class="btn-blue-custom mr-1 md:mr-2">More info</button>
-                        </div>
-                    </div>
-                    <!-- share tab -->
-                    <div x-show="activeTab === 'share'" class="flex flex-col sm:flex-row">
-                        <div class="sm:basis-1/2 h-80 md:h-86 lg:h-90 xl:h-112.5">
-                            <img src="./assets/img/illustration-features-tab-3.svg" alt="">
-                        </div>
-                        <div class="sm:basis-1/2 flex flex-col justify-center items-center sm:items-start sm:pl-10 lg:pl-28 text-center sm:text-start h-72 sm:h-auto">
-                            <h3 class="text-2xl font-medium text-dark-blue-custom">
-                                Share your bookmarks
-                            </h3>
-                            <p class="text-gray-400 w-full my-6">
-                                Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button.
-                            </p>
-                            <button class="btn-blue-custom mr-1 md:mr-2">More info</button>
-                        </div>
-                    </div>
+                <div class="flex-1 w-full">
+                   <!-- tab navigation -->
+                   <div class="flex flex-col sm:flex-row w-full sm:w-10/12 lg:w-8/12 mx-auto my-13 text-center border-gray-300 border-t sm:border-t-0">
+                       <template x-for="tab in tabs" :key="tab.id">
+                           <div @click="activeTab = tab.id" 
+                            class="flex-1 py-5 transition-colors duration-300 border-b border-gray-300 cursor-pointer"
+                            :class="activeTab === tab.id 
+                            ? 'sm:border-b-3 sm:border-red-custom text-dark-blue-custom' 
+                            : 'sm:border-b sm:border-gray-300 text-gray-500 hover:text-red-custom'">
+                               <span class="py-5" x-text="tab.title" 
+                               :class="activeTab === tab.id 
+                               ? 'border-b-3 border-red-custom sm:border-none' 
+                               : '' "></span>
+                           </div>
+                       </template>
+                   </div>
+               
+                   <!-- tab content -->
+                   <div class="relative">
+                       <template x-for="tab in tabs" :key="tab.id">
+                           <div x-show="activeTab === tab.id" 
+                                class="flex flex-col sm:flex-row">
+
+                               <!-- image side -->
+                               <div class="sm:basis-1/2 h-80 md:h-86 lg:h-90 xl:h-112.5">
+                                   <img :src="tab.img" :alt="tab.title">
+                               </div>
+                           
+                               <!-- text side -->
+                               <div class="sm:basis-1/2 flex flex-col justify-center items-center sm:items-start sm:pl-10 lg:pl-28 text-center sm:text-start h-72 sm:h-auto">
+                                   <h3 class="text-2xl font-medium text-dark-blue-custom" x-text="tab.headline"></h3>
+                                   <p class="text-gray-400 w-full my-6" x-text="tab.desc"></p>
+                                   <button class="btn-blue-custom mr-1 md:mr-2">More info</button>
+                               </div>
+                           </div>
+                       </template>
+                   </div>
                 </div>
             </div>
-
-            <div class="absolute bg-blue-custom w-9/12 sm:w-5/12 bottom-84 sm:bottom-0 md:bottom-4 xl:bottom-6 left-0 rounded-r-full -z-10" style="aspect-ratio: 657/427"></div>
+        
+            <!-- background shape -->
+            <div class="absolute bg-blue-custom w-9/12 sm:w-5/12 bottom-84 sm:bottom-0 md:bottom-4 xl:bottom-6 left-0 rounded-r-full -z-10" 
+            style="aspect-ratio: 657/427"></div>
         </section>
 
         <!-- start section extensions -->

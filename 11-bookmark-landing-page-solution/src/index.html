@@ -9,7 +9,407 @@
     <link href="../node_modules/@fontsource/rubik/400.css" rel="stylesheet">
     <link href="../node_modules/@fontsource/rubik/500.css" rel="stylesheet">
 </head>
-<body>
+<body class="relative">
+    <header x-data="{ open: false }">
+        <!-- start nav -->
+        <nav>
+            <div class="my-container flex flex-row justify-between items-center py-4">
+                <div>
+                    <a href="./index.html">
+                        <img src="./assets/img/logo-bookmark.svg" alt="logo bookmark">
+                    </a>
+                </div>
+                <ul class="grow hidden sm:inline-flex justify-end gap-8 text-sm font-normal">
+                    <li>
+                        <a href="#" class="text-dark-blue hover:text-red-custom">FEATURES</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-dark-blue hover:text-red-custom">PRICING</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-dark-blue hover:text-red-custom">CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-red-custom py-2">LOGIN</a>
+                    </li>
+                </ul>
+                <button @click="open = true; console.log(open)" class="block sm:hidden">
+                    <img src="./assets/img/icon-hamburger.svg" alt="hamburger mene icon">
+                </button>
+            </div>
+        </nav>
+        <!-- start hero section -->
+        <section class="w-full relative mb-16 lg:mb-20">
+            <div class="container-hero flex flex-col sm:flex-row justify-center items-center py-12 sm:py-20">
+                <div class="flex-1 order-2 sm:order-1">
+                    <div class="text-center sm:text-left sm:w-11/12 lg:w-10/12 sm:float-right">
+                    <h1 class="text-3xl md:text-4xl xl:text-5xl font-medium text-dark-blue-custom">A Simple Bookmark Manager</h1>
+                    <p class="text-gray-400 my-6">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Eligendi alias sit sequi ab hic dolore, minima,
+                        unde nesciunt beatae repudiandae accusamus similique voluptatum obcaecati,
+                    </p>
+                    <button class="btn-blue-custom mr-1 md:mr-2">Get in on chrome</button>
+                    <button class="btn-gray-custom">Get in on Firefox</button>
+                    </div>
+                </div>
+                <div class="flex-1 order-1 sm:order-2 mb-15 sm:mb-0">
+                    <img src="./assets/img/illustration-hero.svg" alt="" class="w-full">
+                </div>
+            </div>
+
+            <div class="absolute bg-blue-custom w-9/12 sm:w-5/12 top-28 sm:top-30 md:top-35 xl:top-45 right-0 rounded-l-full -z-10" style="aspect-ratio: 657/427"></div>
+        </section>
+
+        <!-- menu in mobile -->
+        <template x-teleport="body">
+            <div class="offcanvas fixed inset-0 w-dvw h-dvh z-1000 flex flex-col justify-between items-center p-8" 
+            x-show="open" 
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0">
+                <div class="w-full">
+                    <div class="flex justify-between items-center">
+                        <img src="./assets/img/logo-bookmark-offcanvas.svg">
+                        <button @click="open = false">
+                            <img src="./assets/img/icon-close.svg">
+                        </button>
+                    </div>
+                    <ul class="flex flex-col items-center text-xl tracking-widest mt-10 text-white text-center">
+                        <li class="w-full border-y border-[#ffffff2e]">
+                            <a @click="open = false" href="#" class="block py-5 text-dark-blue hover:text-red-custom">FEATURES</a>
+                        </li>
+                        <li class="w-full border-b border-[#ffffff2e]">
+                            <a @click="open = false" href="#" class="block py-5 text-dark-blue hover:text-red-custom">PRICING</a>
+                        </li>
+                        <li class="w-full border-b border-[#ffffff2e]">
+                            <a @click="open = false" href="#" class="block py-5 text-dark-blue hover:text-red-custom">CONTACT</a>
+                        </li>
+                        <li class="w-full py-5">
+                            <a @click="open = false" href="#" class="block py-2 px-8 bg-transparent rounded-sm border-2 border-white w-full">LOGIN</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="inline-flex gap-8">
+                    <a href="#" @click="open = false">
+                        <img src="./assets/img/icon-facebook.svg">
+                    </a>
+                    <a href="#" @click="open = false">
+                        <img src="./assets/img/icon-twitter.svg">
+                    </a>
+                </div>
+            </div>
+        </template>
+    </header>
+
+    <main>
+        <!-- start section features -->
+        <section class="relative w-full mb-16 lg:mb-20">
+            <div class="my-container flex flex-col items-center">
+                <div class="flex-1 w-full sm:w-8/12 lg:w-6/12 text-center">
+                    <h2 class="text-2xl lg:text-3xl font-medium text-dark-blue-custom">Features</h2>
+                    <p class="text-gray-400 mt-6">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Similique optio expedita necessitatibus! Enim vero nemo cumque!
+                        Magni facilis dolores sed deleniti fugiat quo nobis similique minus,
+                    </p>
+                </div>
+                <!-- feature tabs -->
+                <div x-data="{ activeTab: 'bookmark' }" class="flex-1 w-full">
+                    <div class="flex flex-col sm:flex-row w-full sm:w-10/12 lg:w-8/12 mx-auto my-13 text-center">
+                        <div class="flex-1 py-5 transition-colors duration-300 border-b border-gray-300 border-t sm:border-t-0" x-on:click="activeTab = 'bookmark'" :class="activeTab === 'bookmark' ? 'sm:border-b-3 sm:border-red-custom text-dark-blue-custom' : 'sm:border-b sm:border-gray-300 text-gray-500 cursor-pointer hover:text-red-custom' ">
+                            <span class="py-5" :class="activeTab === 'bookmark' ? 'border-b-3 border-red-custom sm:border-none' : '' " >Simple Bookmarking</span>
+                        </div>
+                        <div class="flex-1 py-5 transition-colors duration-300 border-b border-gray-300" x-on:click="activeTab = 'search'" :class="activeTab === 'search' ? 'sm:border-b-3 sm:border-red-custom text-dark-blue-custom' : 'sm:border-b sm:border-gray-300 text-gray-500 cursor-pointer hover:text-red-custom' ">
+                            <span class="py-5" :class="activeTab === 'search' ? 'border-b-3 border-red-custom sm:border-none' : '' " >Speedy Searching</span>
+                        </div>
+                        <div class="flex-1 py-5 transition-colors duration-300 border-b border-gray-300" x-on:click="activeTab = 'share'" :class="activeTab === 'share' ? 'sm:border-b-3 sm:border-red-custom text-dark-blue-custom' : 'sm:border-b sm:border-gray-300 text-gray-500 cursor-pointer hover:text-red-custom' ">
+                            <span class="py-5" :class="activeTab === 'share' ? 'border-b-3 border-red-custom sm:border-none' : '' " >Easy Sharing</span>
+                        </div>
+                    </div>
+                    <!-- bookmark tab -->
+                    <div x-show="activeTab === 'bookmark'" class="flex flex-col sm:flex-row">
+                        <div class="sm:basis-1/2 h-80 md:h-86 lg:h-90 xl:h-112.5">
+                            <img src="./assets/img/illustration-features-tab-1.svg" alt="">
+                        </div>
+                        <div class="sm:basis-1/2 flex flex-col justify-center items-center sm:items-start sm:pl-10 lg:pl-28 text-center sm:text-start h-72 sm:h-auto">
+                            <h3 class="text-2xl font-medium text-dark-blue-custom">
+                                Bookmark in one click
+                            </h3>
+                            <p class="text-gray-400 w-full my-6">
+                                Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite sites.
+                            </p>
+                            <button class="btn-blue-custom mr-1 md:mr-2">More info</button>
+                        </div>
+                    </div>
+                    <!-- search tab -->
+                    <div x-show="activeTab === 'search'" class="flex flex-col sm:flex-row">
+                        <div class="sm:basis-1/2 h-80 md:h-86 lg:h-90 xl:h-112.5">
+                            <img src="./assets/img/illustration-features-tab-2.svg" alt="">
+                        </div>
+                        <div class="sm:basis-1/2 flex flex-col justify-center items-center sm:items-start sm:pl-10 lg:pl-28 text-center sm:text-start h-72 sm:h-auto">
+                            <h3 class="text-2xl font-medium text-dark-blue-custom">
+                                Intelligent search
+                            </h3>
+                            <p class="text-gray-400 w-full my-6">
+                                Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks.
+                            </p>
+                            <button class="btn-blue-custom mr-1 md:mr-2">More info</button>
+                        </div>
+                    </div>
+                    <!-- share tab -->
+                    <div x-show="activeTab === 'share'" class="flex flex-col sm:flex-row">
+                        <div class="sm:basis-1/2 h-80 md:h-86 lg:h-90 xl:h-112.5">
+                            <img src="./assets/img/illustration-features-tab-3.svg" alt="">
+                        </div>
+                        <div class="sm:basis-1/2 flex flex-col justify-center items-center sm:items-start sm:pl-10 lg:pl-28 text-center sm:text-start h-72 sm:h-auto">
+                            <h3 class="text-2xl font-medium text-dark-blue-custom">
+                                Share your bookmarks
+                            </h3>
+                            <p class="text-gray-400 w-full my-6">
+                                Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button.
+                            </p>
+                            <button class="btn-blue-custom mr-1 md:mr-2">More info</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bg-blue-custom w-9/12 sm:w-5/12 bottom-84 sm:bottom-0 md:bottom-4 xl:bottom-6 left-0 rounded-r-full -z-10" style="aspect-ratio: 657/427"></div>
+        </section>
+
+        <!-- start section extensions -->
+        <section>
+            <div class="my-container mb-25 lg:mb-30">
+                <div class="w-full sm:w-8/12 lg:w-6/12 text-center mx-auto mb-8">
+                    <h2 class="text-2xl sm:text-3xl text-dark-blue-custom font-medium">
+                        Download the extension
+                    </h2>
+                    <p class="text-gray-400 my-5">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Deleniti perspiciatis repudiandae placeat, ipsam dicta amet quis.
+                    </p>
+                </div>
+                <div class="w-full xl:w-10/12 flex flex-col md:flex-row md:flex-wrap md:justify-center md:items-center mx-auto gap-7 my-15">
+                    <div class="lg:flex-1 flex flex-col shadow-lg rounded-xl lg:mb-15 mx-4 md:mx-0">
+                        <div class="flex flex-col justify-center items-center p-8">
+                            <img src="./assets/img/logo-chrome.svg" class="w-20 mb-5" alt="">
+                            <span class="text-dark-blue-custom font-medium mb-1">Add to chrome</span>
+                            <span class="text-gray-400 text-[12px]">Minimum version 62</span>
+                        </div>
+                        <img src="./assets/img/bg-dots.svg" class="w-full">
+                        <div class="p-5">
+                            <button class="btn-blue-custom w-full text-center">
+                                Add & Install Extextion
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:flex-1 flex flex-col shadow-lg rounded-xl mx-4 md:mx-0">
+                        <div class="flex flex-col justify-center items-center p-8">
+                            <img src="./assets/img/logo-firefox.svg" class="w-20 mb-5" alt="">
+                            <span class="text-dark-blue-custom font-medium mb-1">Add to Firefox</span>
+                            <span class="text-gray-400 text-[12px]">Minimum version 55</span>
+                        </div>
+                        <img src="./assets/img/bg-dots.svg" class="w-full">
+                        <div class="p-5">
+                            <button class="btn-blue-custom w-full text-center">
+                                Add & Install Extextion
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:flex-1 flex flex-col shadow-lg rounded-xl lg:mt-15 mx-4 md:mx-0">
+                        <div class="flex flex-col justify-center items-center p-8">
+                            <img src="./assets/img/logo-opera.svg" class="w-20 mb-5" alt="">
+                            <span class="text-dark-blue-custom font-medium mb-1">Add to Opera</span>
+                            <span class="text-gray-400 text-[12px]">Minimum version 46</span>
+                        </div>
+                        <img src="./assets/img/bg-dots.svg" class="w-full">
+                        <div class="p-5">
+                            <button class="btn-blue-custom w-full text-center">
+                                Add & Install Extextion
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- start section faq -->
+        <section>
+            <div class="my-container mb-25 lg:mb-30">
+                <div class="w-full sm:w-8/12 lg:w-6/12 mx-auto flex flex-col items-center">
+                    <div class="w-full text-center mb-12">
+                        <h2 class="text-2xl sm:text-3xl text-dark-blue-custom font-medium">
+                            Frequently Asked Questions
+                        </h2>
+                        <p class="text-gray-400 my-5">
+                            Here are some of our FAQs. If you have any other questions
+                            you’d like answered please feel free to email us.
+                        </p>
+                    </div>
+                    <!-- accordion -->
+                    <div class="accordion">
+                        <div class="accordion-item" x-data="{ showCollapse: false }">
+                            <div class="accordion-header" x-on:click="showCollapse = !showCollapse">
+                                <span>
+                                    What is Bookmark?
+                                </span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="12" 
+                                :class="showCollapse ? 'stroke-red-custom rotate-180' : 'stroke-blue-custom' ">
+                                    <path fill="none" stroke="inherit" stroke-width="3" d="M1 1l8 8 8-8"/>
+                                </svg>
+                            </div>
+                            <div class="accordion-body h-0" :class="showCollapse ? 'h-40 sm:h-30' : 'h-0' ">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                    Fusce tincidunt justo eget ultricies fringilla. 
+                                    Phasellus blandit ipsum quis quam ornare mattis.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item" x-data="{ showCollapse: false }">
+                            <div class="accordion-header" x-on:click="showCollapse = !showCollapse">
+                                <span>
+                                    How can I request a new browser?
+                                </span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="12" 
+                                :class="showCollapse ? 'stroke-red-custom rotate-180' : 'stroke-blue-custom' ">
+                                    <path fill="none" stroke="inherit" stroke-width="3" d="M1 1l8 8 8-8"/>
+                                </svg>
+                            </div>
+                            <div class="accordion-body h-0" :class="showCollapse ? 'h-60 sm:h-45' : 'h-0' ">
+                                <p>
+                                    Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, 
+                                    ultricies non ligula. Suspendisse imperdiet. 
+                                    Vivamus luctus eros aliquet convallis ultricies. 
+                                    Mauris augue massa, ultricies non ligula. 
+                                    Suspendisse imperdie tVivamus luctus eros aliquet convallis ultricies. 
+                                    Mauris augue massa, ultricies non ligula. Suspendisse imperdiet. 
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item" x-data="{ showCollapse: false }">
+                            <div class="accordion-header" x-on:click="showCollapse = !showCollapse">
+                                <span>
+                                    Is there a mobile app?
+                                </span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="12" 
+                                :class="showCollapse ? 'stroke-red-custom rotate-180' : 'stroke-blue-custom' ">
+                                    <path fill="none" stroke="inherit" stroke-width="3" d="M1 1l8 8 8-8"/>
+                                </svg>
+                            </div>
+                            <div class="accordion-body h-0" :class="showCollapse ? 'h-50 sm:h-40' : 'h-0' ">
+                                <p>
+                                    Sed consectetur quam id neque fermentum accumsan. 
+                                    Praesent luctus vestibulum dolor, ut condimentum urna vulputate eget. 
+                                    Cras in ligula quis est pharetra mattis sit amet pharetra purus. 
+                                    Sed sollicitudin ex et ultricies bibendum. 
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item" x-data="{ showCollapse: false }">
+                            <div class="accordion-header" x-on:click="showCollapse = !showCollapse">
+                                <span>
+                                    What about other Chromium browsers?
+                                </span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="12" 
+                                :class="showCollapse ? 'stroke-red-custom rotate-180' : 'stroke-blue-custom' ">
+                                    <path fill="none" stroke="inherit" stroke-width="3" d="M1 1l8 8 8-8"/>
+                                </svg>
+                            </div>
+                            <div class="accordion-body h-0" :class="showCollapse ? 'h-40 sm:h-30' : 'h-0' ">
+                                <p>
+                                    Integer condimentum ipsum id imperdiet finibus. 
+                                    Vivamus in placerat mi, at euismod dui. Aliquam vitae 
+                                    neque eget nisl gravida pellentesque non ut velit. 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-blue-custom mt-10">
+                        More Info
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- start footer -->
+    <footer>
+        <!-- top footer -->
+        <div class="w-full bg-blue-custom">
+            <div class="my-container">
+                <div class="w-full sm:w-6/12 mx-auto flex flex-col text-center py-15">
+                    <p class="text-gray-50 uppercase tracking-[.4em] text-[14px]">
+                        35,000+ already joined
+                    </p>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-50 font-medium mb-8 mt-4 sm:mt-8">
+                        Stay up-to-date with what we’re doing
+                    </h2>
+                    <form @submit.prevent="
+                        const regexEmail = /^\S+@\S+\.\S+$/;
+                        isValidate = regexEmail.test(email);
+                        if (isValidate) $el.submit();
+                    " x-data="{ email:'', isValidate: true }" method="POST" action="#">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="grow sm:h-20">
+                            <input type="text" name="email" placeholder="Enter your email address" id="input-email"
+                            class="w-full bg-gray-50 px-4 py-2 rounded-sm text-[14px] text-gray-500"
+                            :class="isValidate ? 'focus-visible:outline-2 focus-visible:outline-dark-blue-custom' : 'outline-2 outline-red-custom is-invalid' " x-model.trim="email">
+                            
+                            <p class="w-full bg-red-custom rounded-b-xs text-[12px] text-left text-gray-50 italic px-3 py-0.5 outline-2 outline-red-custom"
+                            x-show="!isValidate" x-cloak >
+                                Whoops, make sure it’s an email
+                            </p>
+                        </div>
+                        <button class="flex-none btn-red-custom mb-auto" type="submit" >
+                            Contact Us
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- bottom footer -->
+        <div class="w-full bg-dark-blue-custom">
+            <div class="my-container py-10 sm:py-6 flex flex-col sm:flex-row justify-between items-center">
+                <div class="inline-flex flex-col sm:flex-row">
+                    <a href="#">
+                        <img src="./assets/img/logo-bookmark-footer.svg" alt="">
+                    </a>
+                    <ul class="inline-flex flex-col sm:flex-row items-center gap-5 sm:gap-10 my-10 sm:my-0 sm:ml-12 text-gray-50 text-sm transition-all duration-300">
+                        <li class="hover:text-red-custom transition-all duration-300"><a href="#">FEATURES</a></li>
+                        <li class="hover:text-red-custom transition-all duration-300"><a href="#">PRICING</a></li>
+                        <li class="hover:text-red-custom transition-all duration-300"><a href="#">CONTACT</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="inline-flex gap-10 items-center">
+                        <li class="text-gray-50 hover:text-red-custom transition-all duration-300"><a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                                <path fill="currentColor" fill-rule="evenodd" 
+                                d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/>
+                            </svg>
+                        </a></li>
+                        <li class="text-gray-50 hover:text-red-custom transition-all duration-300"><a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20">
+                                <path fill="currentColor" fill-rule="evenodd" d="M24 2.557a9.83 9.83 0 0 1-2.828.775A4.932 4.932 0 0 0 23.337.608a9.864 9.864 0 0 1-3.127 1.195A4.916 4.916 0 0 0 16.616.248c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 0 1 1.671 1.149a4.93 4.93 0 0 0 1.523 6.574 4.903 4.903 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 0 1-2.224.084 4.928 4.928 0 0 0 4.6 3.419A9.9 9.9 0 0 1 0 17.54a13.94 13.94 0 0 0 7.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0 0 24 2.557z"/>
+                            </svg>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
     <script src="./../node_modules/alpinejs/dist/cdn.min.js"></script>

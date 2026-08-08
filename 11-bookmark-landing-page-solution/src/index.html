@@ -195,59 +195,64 @@
         </section>
 
         <!-- start section extensions -->
-        <section>
+        <section x-data="{ 
+            extensions: [
+                { 
+                    name: 'Add to Chrome', 
+                    logo: './assets/img/logo-chrome.svg', 
+                    version: 'Minimum version 62', 
+                    extraClass: 'lg:mb-15' 
+                },
+                { 
+                    name: 'Add to Firefox', 
+                    logo: './assets/img/logo-firefox.svg', 
+                    version: 'Minimum version 55', 
+                    extraClass: '' 
+                },
+                { 
+                    name: 'Add to Opera', 
+                    logo: './assets/img/logo-opera.svg', 
+                    version: 'Minimum version 46', 
+                    extraClass: 'lg:mt-15' 
+                }
+            ]
+        }">
             <div class="my-container mb-25 lg:mb-30">
+                <!-- header -->
                 <div class="w-full sm:w-8/12 lg:w-6/12 text-center mx-auto mb-8">
-                    <h2 class="text-2xl sm:text-3xl text-dark-blue-custom font-medium">
-                        Download the extension
-                    </h2>
+                    <h2 class="text-2xl sm:text-3xl text-dark-blue-custom font-medium">Download the extension</h2>
                     <p class="text-gray-400 my-5">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                         Deleniti perspiciatis repudiandae placeat, ipsam dicta amet quis.
                     </p>
                 </div>
+        
+                <!-- extensions flex container -->
                 <div class="w-full xl:w-10/12 flex flex-col md:flex-row md:flex-wrap md:justify-center md:items-center mx-auto gap-7 my-15">
-                    <div class="lg:flex-1 flex flex-col shadow-lg rounded-xl lg:mb-15 mx-4 md:mx-0">
-                        <div class="flex flex-col justify-center items-center p-8">
-                            <img src="./assets/img/logo-chrome.svg" class="w-20 mb-5" alt="">
-                            <span class="text-dark-blue-custom font-medium mb-1">Add to chrome</span>
-                            <span class="text-gray-400 text-[12px]">Minimum version 62</span>
+                    
+                    <template x-for="(ext, index) in extensions" :key="index">
+                        <div class="lg:flex-1 flex flex-col shadow-lg rounded-xl mx-4 md:mx-0"
+                             :class="ext.extraClass"> 
+                            
+                            <!-- card top part -->
+                            <div class="flex flex-col justify-center items-center p-8">
+                                <img :src="ext.logo" class="w-20 mb-5" :alt="ext.name">
+                                <span class="text-dark-blue-custom font-medium mb-1" x-text="ext.name"></span>
+                                <span class="text-gray-400 text-[12px]" x-text="ext.version"></span>
+                            </div>
+        
+                            <!-- divider image -->
+                            <img src="./assets/img/bg-dots.svg" class="w-full">
+        
+                            <!-- card bottom part -->
+                            <div class="p-5">
+                                <button class="btn-blue-custom w-full text-center">
+                                    Add & Install Extension
+                                </button>
+                            </div>
                         </div>
-                        <img src="./assets/img/bg-dots.svg" class="w-full">
-                        <div class="p-5">
-                            <button class="btn-blue-custom w-full text-center">
-                                Add & Install Extextion
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="lg:flex-1 flex flex-col shadow-lg rounded-xl mx-4 md:mx-0">
-                        <div class="flex flex-col justify-center items-center p-8">
-                            <img src="./assets/img/logo-firefox.svg" class="w-20 mb-5" alt="">
-                            <span class="text-dark-blue-custom font-medium mb-1">Add to Firefox</span>
-                            <span class="text-gray-400 text-[12px]">Minimum version 55</span>
-                        </div>
-                        <img src="./assets/img/bg-dots.svg" class="w-full">
-                        <div class="p-5">
-                            <button class="btn-blue-custom w-full text-center">
-                                Add & Install Extextion
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="lg:flex-1 flex flex-col shadow-lg rounded-xl lg:mt-15 mx-4 md:mx-0">
-                        <div class="flex flex-col justify-center items-center p-8">
-                            <img src="./assets/img/logo-opera.svg" class="w-20 mb-5" alt="">
-                            <span class="text-dark-blue-custom font-medium mb-1">Add to Opera</span>
-                            <span class="text-gray-400 text-[12px]">Minimum version 46</span>
-                        </div>
-                        <img src="./assets/img/bg-dots.svg" class="w-full">
-                        <div class="p-5">
-                            <button class="btn-blue-custom w-full text-center">
-                                Add & Install Extextion
-                            </button>
-                        </div>
-                    </div>
+                    </template>
+        
                 </div>
             </div>
         </section>

@@ -50,7 +50,7 @@
     @apply w-full border-b border-gray-300;
   }
   .accordion-header{
-    @apply flex flex-row justify-between items-center py-5 pr-5 text-dark-blue-custom hover:text-red-custom transition-colors duration-300;
+    @apply flex flex-row justify-between items-center py-5 pr-5 text-dark-blue-custom hover:text-red-custom transition-colors duration-300 cursor-pointer;
   }
   .accordion-icon{
     @apply transition-all duration-500;

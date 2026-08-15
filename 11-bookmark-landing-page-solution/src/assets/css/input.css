@@ -31,18 +31,20 @@
   .container-hero {
     @apply mx-auto w-full sm:w-11/12 max-w-7xl px-4 sm:px-0; 
   }
-  .container {
-    @apply mx-auto; /* با این کار کلاس پیش‌فرض تیل‌ویند وسط‌چین می‌شود */
+  /* ===== buttons ===== */
+  .btn{
+    @apply px-5 py-2 rounded-sm shadow-sm text-[13px] cursor-pointer transition-colors duration-300;
   }
   .btn-blue-custom {
-    @apply bg-blue-custom border hover:bg-white border-blue-custom text-white hover:text-blue-custom px-5 py-2 rounded-sm shadow-sm text-[13px] cursor-pointer transition-colors duration-300;
+    @apply bg-blue-custom border hover:bg-white border-blue-custom text-white hover:text-blue-custom;
   }
   .btn-red-custom {
-    @apply bg-red-custom border hover:bg-white border-red-custom text-white hover:text-red-custom px-5 py-2 rounded-sm shadow-sm text-[13px] cursor-pointer transition-colors duration-300;
+    @apply bg-red-custom border hover:bg-white border-red-custom text-white hover:text-red-custom;
   }
   .btn-gray-custom {
-    @apply bg-gray-custom border hover:bg-white border-gray-custom hover:border-gray-600 text-gray-600 px-5 py-2 rounded-sm shadow-sm text-[13px] cursor-pointer transition-colors duration-300;
+    @apply bg-gray-custom border hover:bg-white border-gray-custom hover:border-gray-600 text-gray-600;
   }
+  /* ===== accordion ===== */
   .accordion{
     @apply w-full border-t border-gray-300;
   }

@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: hsl(180, 66%, 49%);
+    --color-dark-primary: hsl(257, 27%, 26%);
+    --color-danger: hsl(0, 87%, 67%);
+    --color-gray: hsl(0, 0%, 75%);
+    --color-grayish-violet: hsl(257, 7%, 63%);
+    --color-very-dark-blue: hsl(255, 11%, 22%);
+    --color-very-dark-violet: hsl(260, 8%, 14%);
+    --font-poppin: "Poppin", ui-sans-serif, system-ui, sans-serif; 
+}
+
+@layer base {
+    body {
+        font-family: var(--font-poppin);
+    }
+}

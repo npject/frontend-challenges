@@ -1,0 +1,12 @@
+{
+  "name": "09-shortly-url-shortening-api",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/assets/css/input.css -o ./src/assets/css/output.css --watch"
+  },
+  "author": "NPJect",
+  "dependencies": {
+    "@fontsource/poppins": "^5.3.0",
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}

@@ -2,17 +2,78 @@
 
 @theme {
     --color-primary: hsl(180, 66%, 49%);
+    --color-primary-hover: hsl(179, 57%, 75%);
     --color-dark-primary: hsl(257, 27%, 26%);
     --color-danger: hsl(0, 87%, 67%);
     --color-gray: hsl(0, 0%, 75%);
     --color-grayish-violet: hsl(257, 7%, 63%);
     --color-very-dark-blue: hsl(255, 11%, 22%);
     --color-very-dark-violet: hsl(260, 8%, 14%);
-    --font-poppin: "Poppin", ui-sans-serif, system-ui, sans-serif; 
+    --color-light-gray: hsl(230, 25%, 95%);
+    --font-poppins: "Poppins", ui-sans-serif, system-ui, sans-serif; 
 }
 
 @layer base {
     body {
-        font-family: var(--font-poppin);
+        font-family: var(--font-poppins);
+    }
+    #box-shorten-it {
+        background: url("../img/bg-shorten-mobile.svg") no-repeat top right; 
+    }
+    #section-boost {
+        background: url("../img/bg-boost-mobile.svg") no-repeat center right;
+    }
+
+    /* media queries */
+    @media (min-width: 40rem) {
+        #box-shorten-it {
+            background: url("../img/bg-shorten-desktop.svg") no-repeat top center; 
+        }
+        #section-boost {
+            background: url("../img/bg-boost-desktop.svg") no-repeat top center;
+        }   
+    }
+}
+
+@layer components {
+    .container-fluid {
+      @apply mx-auto w-full; 
+    }
+    .my-container {
+      @apply mx-auto w-full sm:w-11/12 lg:w-10/12 xl:w-9/12 max-w-7xl px-4 sm:px-0;
+    }
+    .nav-link {
+        @apply block px-4 py-2 text-sm font-semibold text-grayish-violet hover:text-very-dark-blue 
+        transition-colors duration-200;
+    }
+    .btn {
+        @apply px-6 py-2 rounded-lg text-sm font-semibold bg-primary hover:bg-primary-hover text-white 
+        shadow-sm cursor-pointer transition-colors duration-300 whitespace-nowrap;
+    }
+    .btn-lg {
+        @apply px-8 py-3 text-base;
+    }
+    .btn-rounded {
+        @apply rounded-3xl;
+    }
+    .card {
+        @apply z-1 lg:flex-1 flex flex-col justify-center items-center lg:items-start text-center lg:text-start 
+        px-8 pb-10 bg-white rounded-lg shadow-xs md:max-w-5/12;
+    }
+    .card-image {
+        @apply w-20 h-20 flex justify-center items-center bg-dark-primary rounded-full -my-10;
+    }
+    .card-title {
+        @apply text-xl font-bold text-very-dark-blue mt-18 mb-4;
+    }
+    .card-text {
+        @apply text-grayish-violet text-sm;
+    }
+    .nav-link-footer {
+        @apply block py-1 text-sm font-semibold text-grayish-violet hover:text-primary 
+        transition-colors duration-200; 
+    }
+    .social-link {
+        @apply text-white hover:text-primary transition-colors duration-200;
     }
 }

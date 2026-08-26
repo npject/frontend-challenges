@@ -31,6 +31,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
     --radius-3xl: 1.5rem;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -258,6 +259,9 @@
   .w-2 {
     width: calc(var(--spacing) * 2);
   }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
   .w-\[115\%\] {
     width: 115%;
   }
@@ -289,6 +293,12 @@
   .justify-center {
     justify-content: center;
   }
+  .gap-1 {
+    gap: var(--spacing);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
   }
@@ -306,6 +316,20 @@
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-t-3 {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 3px;
+  }
+  .border-\[\#ffffff30\] {
+    border-color: #ffffff30;
+  }
+  .border-very-dark-blue {
+    border-color: var(--color-very-dark-blue);
   }
   .bg-dark-primary {
     background-color: var(--color-dark-primary);
@@ -348,6 +372,9 @@
   }
   .ps-4 {
     padding-inline-start: calc(var(--spacing) * 4);
+  }
+  .pt-4 {
+    padding-top: calc(var(--spacing) * 4);
   }
   .text-center {
     text-align: center;
@@ -404,6 +431,9 @@
     .sm\:block {
       display: block;
     }
+    .sm\:hidden {
+      display: none;
+    }
     .sm\:inline-flex {
       display: inline-flex;
     }
@@ -421,6 +451,9 @@
     }
     .sm\:justify-between {
       justify-content: space-between;
+    }
+    .sm\:justify-normal {
+      justify-content: normal;
     }
     .sm\:p-10 {
       padding: calc(var(--spacing) * 10);
@@ -529,6 +562,44 @@
   }
   #section-boost {
     background: url("../img/bg-boost-mobile.svg") no-repeat center right;
+  }
+  #hamburger span {
+    transition: transform .3s, opacity .3s;
+  }
+  #hamburger.show-menu span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  #hamburger.show-menu span:nth-child(2) {
+    opacity: 0;
+  }
+  #hamburger.show-menu span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .offcanvas:not(.show) {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .3s, transform .3s, visibility .3s;
+  }
+  .offcanvas.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .offcanvas.show .offcanvas-item {
+    animation: slideIn .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: calc(var(--i) * 60ms);
+    opacity: 0;
+  }
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   @media (min-width: 40rem) {
     #box-shorten-it {
@@ -698,6 +769,38 @@
       }
     }
   }
+  .offcanvas {
+    position: fixed;
+    inset-inline: calc(var(--spacing) * 6);
+    top: calc(var(--spacing) * 16);
+    z-index: 1000;
+    overflow: hidden;
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: 1000ms;
+    transition-duration: 1000ms;
+  }
+  .offcanvas>div {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 8);
+    border-radius: var(--radius-xl);
+    background-color: var(--color-dark-primary);
+    padding-inline: calc(var(--spacing) * 6);
+    padding-block: calc(var(--spacing) * 8);
+    text-align: center;
+  }
+  .no-scroll {
+    overflow: hidden;
+  }
+  .backdrop {
+    position: fixed;
+    inset: 0px;
+    z-index: 995;
+    height: 100dvh;
+    width: 100dvw;
+  }
 }
 @property --tw-translate-x {
   syntax: "*";
@@ -713,6 +816,11 @@
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-font-weight {
   syntax: "*";
@@ -793,6 +901,7 @@
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
+      --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-duration: initial;
       --tw-shadow: 0 0 #0000;

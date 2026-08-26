@@ -10,10 +10,10 @@
     <link href="./../node_modules/@fontsource/poppins/600.css" rel="stylesheet">
     <link href="./../node_modules/@fontsource/poppins/700.css" rel="stylesheet">
 </head>
-<body>
+<body class="relative">
     <header>
         <div class="my-container">
-            <nav class="w-full flex py-4">
+            <nav class="w-full flex justify-between sm:justify-normal py-4">
                 <div class="flex-none">
                     <a href="./index.html" aria-label="logo shortly">
                         <img src="./assets/img/logo.svg" alt="" aria-hidden="true">
@@ -26,10 +26,16 @@
                         <li><a class="nav-link" href="#">Resources</a></li>
                     </ul>
                     <div class="inline-flex">
-                        <button class="nav-link me-2">Login</button>
+                        <button class="nav-link me-2" type="button">Login</button>
                         <button class="btn btn-rounded" type="button">Sign Up</button>
                     </div>
                 </div>
+                <button id="hamburger" class="sm:hidden flex flex-col justify-center items-center gap-1"
+                onclick="toggleMenu()" aria-expanded="false" aria-label="hamburger menu" aria-controls="offcanvas-menu" type="button">
+                    <span class="block w-6 border-t-3 border-very-dark-blue"></span>
+                    <span class="block w-6 border-t-3 border-very-dark-blue"></span>
+                    <span class="block w-6 border-t-3 border-very-dark-blue"></span>
+                </button>
             </nav>
         </div> 
     </header>
@@ -219,6 +225,28 @@
             </div>
         </div>
     </footer>
+
+    <!-- menu in mobile -->
+    <div class="offcanvas"
+    id="offcanvas-menu" 
+    role="dialog"
+    aria-modal="true"
+    aria-label="menu"
+    tabindex="-1"
+     >
+        <div>
+            <ul class="w-full flex flex-col justify-center items-center gap-4">
+                <li class=""><a class="offcanvas-item nav-link text-white text-lg" href="#" onclick="toggleMenu()">Features</a></li>
+                <li class=""><a class="offcanvas-item nav-link text-white text-lg" href="#" onclick="toggleMenu()">Pricing</a></li>
+                <li class=""><a class="offcanvas-item nav-link text-white text-lg" href="#" onclick="toggleMenu()">Resources</a></li>
+            </ul>
+            <div class="w-full flex flex-col justify-center items-center gap-4 pt-4 border-t border-[#ffffff30]">
+                <button class="offcanvas-item nav-link text-white text-lg" type="button" onclick="toggleMenu()">Login</button>
+                <button class="offcanvas-item btn btn-lg btn-rounded w-full text-lg" type="button" onclick="toggleMenu()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
 
     <script src="./assets/js/main.js"></script>
 </body>

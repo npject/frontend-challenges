@@ -23,8 +23,50 @@
     #section-boost {
         background: url("../img/bg-boost-mobile.svg") no-repeat center right;
     }
+    #hamburger span {
+        transition: transform .3s, opacity .3s;
+    }
+    #hamburger.show-menu span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    #hamburger.show-menu span:nth-child(2) {
+        opacity: 0;
+    }
+    #hamburger.show-menu span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    .offcanvas:not(.show) {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity .3s, transform .3s, visibility .3s;
+    }
+    .offcanvas.show { 
+        visibility: visible; 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+    .offcanvas.show .offcanvas-item {
+        animation: slideIn .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        animation-delay: calc(var(--i) * 60ms); 
+        opacity: 0;
+    }
+    
 
-    /* media queries */
+
+    /* ====== animations ====== */
+    @keyframes slideIn {
+        from { 
+            opacity: 0; 
+            transform: translateY(20px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+    }
+
+    /* ====== media queries ====== */
     @media (min-width: 40rem) {
         #box-shorten-it {
             background: url("../img/bg-shorten-desktop.svg") no-repeat top center; 
@@ -76,4 +118,18 @@
     .social-link {
         @apply text-white hover:text-primary transition-colors duration-200;
     }
+    .offcanvas {
+        @apply overflow-hidden fixed inset-x-6 top-16 z-1000 
+        transition-all duration-1000;
+    }
+    .offcanvas>div {
+        @apply flex flex-col gap-8 px-6 py-8 bg-dark-primary rounded-xl text-center;
+    }
+    .no-scroll {
+        @apply overflow-hidden;
+    }
+    .backdrop {
+        @apply w-dvw h-dvh fixed inset-0 z-995;
+    }
+    
 }

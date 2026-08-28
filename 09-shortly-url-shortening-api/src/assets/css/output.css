@@ -591,6 +591,10 @@
     animation-delay: calc(var(--i) * 60ms);
     opacity: 0;
   }
+  .backdrop {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, .5) 40%, transparent);
+    transition: visibility .3s, opacity .3s;
+  }
   @keyframes slideIn {
     from {
       opacity: 0;
@@ -790,16 +794,27 @@
     padding-inline: calc(var(--spacing) * 6);
     padding-block: calc(var(--spacing) * 8);
     text-align: center;
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .offcanvas-item {
+    width: 100%;
   }
   .no-scroll {
     overflow: hidden;
   }
   .backdrop {
+    visibility: hidden;
     position: fixed;
     inset: 0px;
     z-index: 995;
     height: 100dvh;
     width: 100dvw;
+    opacity: 0%;
+  }
+  .backdrop.show {
+    visibility: visible;
+    opacity: 100%;
   }
 }
 @property --tw-translate-x {

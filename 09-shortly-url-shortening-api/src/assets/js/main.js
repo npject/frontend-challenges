@@ -1,60 +1,85 @@
-let isOpen;
-
-const menuItems = document.querySelectorAll(".offcanvas-item");
-menuItems.forEach((item, index) => {
-    item.style.setProperty('--i', index);
-});
-
-const toggleMenu = () => {
+document.addEventListener("DOMContentLoaded", () => {
     const btn = document.querySelector("#hamburger");
     const menu = document.querySelector("#offcanvas-menu");
-    menu.classList.toggle("show");
-    btn.classList.toggle("show-menu");
-    document.querySelector("body").classList.toggle("no-scroll");
-    isOpen = (btn.ariaExpanded === "true");
-    btn.ariaExpanded = !isOpen;
-    isOpen = !isOpen; 
-    if (isOpen === true) {
-        document.querySelector("body").innerHTML += `<div class="backdrop" onclick="toggleMenu()"></div>`;
-    }else {
-        document.querySelector(".backdrop").remove();
+    const backdrop = document.querySelector(".backdrop");
+    
+    const menuItems = document.querySelectorAll(".offcanvas-item");
+    const firstItem = menuItems[0];
+    const lastItem = menuItems[menuItems.length -1];
+    
+    let isOpen = false;
+    
+    menuItems.forEach((item, index) => {
+        item.style.setProperty('--i', index);
+    });
+    
+    const setAriaExpanded = (open) => {
+        btn.setAttribute("aria-expanded", String(open));
     }
+    
+    const openMenu = () => {
+        isOpen = true;
+        menu.classList.add("show");
+        btn.classList.add("show-menu");
+        backdrop.classList.add("show");
+        document.body.classList.add("no-scroll");
+        setAriaExpanded(true); 
+    }
+    
+    const closeMenu = () => {
+        isOpen = false;
+        menu.classList.remove("show");
+        btn.classList.remove("show-menu");
+        backdrop.classList.remove("show");
+        document.body.classList.remove("no-scroll");
+        setAriaExpanded(false); 
+        btn.focus();
+    }
+     
+    const toggleMenu = () => (isOpen ? closeMenu() : openMenu());
+    
+    btn.addEventListener("click", toggleMenu);
+    backdrop.addEventListener("click", closeMenu);
+    
+    menu.addEventListener("click", (event) => {
+        clickedItem = event.target.closest(".offcanvas-item");
+    
+        if (clickedItem)
+            closeMenu();
+    })
+    
+    document.addEventListener("keydown", (event) => {
+        const { key } = event;
+    
+        if (!isOpen)
+            return;
+    
+        if (key === "Escape") {
+            closeMenu();
+            return;
+        }
+    
+        if (key !== "Tab")
+            return;
         
-}
-
-//menuItems.forEach(item => item.addEventListener("click", toggleMenu));
-
-// document.querySelector(".backdrop").addEventListener("click", () => {debugger
-//     if(isOpen === true) 
-//         toggleMenu();
-// })
-
-document.addEventListener("keydown", (event) => {
-    const { key } = event;
-    const btn = document.querySelector("#hamburger");
-
-    if (isOpen === true && key === "Escape")
-        toggleMenu();
-
-    if (isOpen === true && key === "Tab") {
         if (!event.shiftKey) {
             if (document.activeElement === btn) {
                 event.preventDefault();
-                menuItems[0].focus();
+                firstItem.focus();
             }
-            if (document.activeElement === menuItems[menuItems.length -1]) {
+            if (document.activeElement === lastItem) {
                 event.preventDefault();
                 btn.focus();
             }
         }else {
             if (document.activeElement === btn) {
                 event.preventDefault();
-                menuItems[menuItems.length -1].focus();
+                lastItem.focus();
             }
-            if (document.activeElement === menuItems[0]) {
+            if (document.activeElement === firstItem) {
                 event.preventDefault();
                 btn.focus();
             }
-        }
-    }
+        } 
+    })
 })

@@ -51,7 +51,10 @@
         animation-delay: calc(var(--i) * 60ms); 
         opacity: 0;
     }
-    
+    .backdrop {
+        background-image: linear-gradient(to top, rgba(0, 0, 0, .5) 40%, transparent);
+        transition: visibility .3s, opacity .3s;
+    }
 
 
     /* ====== animations ====== */
@@ -123,13 +126,18 @@
         transition-all duration-1000;
     }
     .offcanvas>div {
-        @apply flex flex-col gap-8 px-6 py-8 bg-dark-primary rounded-xl text-center;
+        @apply flex flex-col gap-8 px-6 py-8 bg-dark-primary rounded-xl text-center shadow;
+    }
+    .offcanvas-item {
+        @apply w-full;
     }
     .no-scroll {
         @apply overflow-hidden;
     }
     .backdrop {
-        @apply w-dvw h-dvh fixed inset-0 z-995;
+        @apply w-dvw h-dvh fixed inset-0 z-995 invisible opacity-0;
     }
-    
+    .backdrop.show {
+        @apply opacity-100 visible;
+    }
 }

@@ -21,3 +21,13 @@ Users should be able to:
 - Bootstrap 5
 - Flexbox
 - JS
+
+
+---
+
+### 🚀 Project Links
+
+> **Note:** Click links to view live demos. (Hold Ctrl/Cmd to open in new tab)
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=netlify)](https://npject-base-apparel-coming-soon.netlify.app)
+[![Main Repo](https://img.shields.io/badge/Main_Repo-gray?style=for-the-badge&logo=github)](../README.md)

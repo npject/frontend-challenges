@@ -29,6 +29,9 @@ header{
 #services{
     margin-bottom: 100px;
 }
+#services .service-image{
+    height: 80px;
+}
 #how-we-work{
     margin-bottom: 100px;
 }
